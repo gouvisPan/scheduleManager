@@ -1,0 +1,25 @@
+@import "../../../sass/global";
+
+.input-c {
+  display: flex;
+  gap: 0.2rem;
+  width: 4rem;
+  input {
+    width: 100%;
+    border: 0;
+  }
+
+  &__icon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.label-c {
+  width: 6rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

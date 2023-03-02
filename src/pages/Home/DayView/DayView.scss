@@ -1,0 +1,45 @@
+@import "../../../sass/global";
+
+.day-view {
+  background-color: $color-primary-c;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+  // min-width: 70vw;
+  // max-width: 90vw;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    h1 {
+      text-align: center;
+      width: 18rem;
+    }
+  }
+
+  &__body {
+    display: flex;
+
+    background-color: $color-primary-whitish;
+    width: 100%;
+    &--side-l {
+      flex-grow: 1.6;
+      display: flex;
+      justify-content: center;
+    }
+
+    &--side-r {
+      flex-grow: 0.8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 3rem;
+    }
+  }
+}

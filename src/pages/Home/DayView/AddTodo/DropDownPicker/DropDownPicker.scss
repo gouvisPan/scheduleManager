@@ -1,0 +1,15 @@
+@import "../../../../../sass/global";
+
+.drop-down-picker {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  width: 100%;
+
+  h4 {
+    width: 10rem;
+    margin: 0;
+  }
+}

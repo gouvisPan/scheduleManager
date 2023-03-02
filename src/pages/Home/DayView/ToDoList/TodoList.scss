@@ -1,0 +1,17 @@
+@import "../../../../sass/global";
+
+.todoList-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+
+  h2 {
+    margin: 0;
+  }
+  ul {
+    width: 100%;
+    list-style: none;
+  }
+}

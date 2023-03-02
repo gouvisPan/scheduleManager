@@ -1,0 +1,18 @@
+@import "../../sass/_global.scss";
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .auth {
+    flex-direction: column;
+
+    &__change-btn {
+      color: $color-grey-black;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@import "../../../sass//global";
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox input[type="checkbox"]:hover + label::before {
+  cursor: pointer;
+  background-color: $color-primary-lightest;
+}
+
+.checkbox input[type="checkbox"]:focus + label::before {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.checkbox input[type="checkbox"]:checked + label::before {
+  background-color: $color-grey-white;
+  content: "\2713";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.checkbox {
+  input {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+  }
+  label {
+    cursor: pointer;
+    display: flex;
+  }
+  label::before {
+    content: "";
+    width: 1.2em;
+    height: 1.2em;
+    border: 0.07em solid black;
+    border-radius: 2em;
+  }
+  label:hover::before {
+    background-color: $color-primary-lightest;
+  }
+}

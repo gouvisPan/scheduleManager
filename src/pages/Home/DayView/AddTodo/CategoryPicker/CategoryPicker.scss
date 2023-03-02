@@ -1,0 +1,49 @@
+@import "../../../../../sass/global";
+
+.picker-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+
+  h4 {
+    margin: 0;
+  }
+
+  &__bullets {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+}
+
+.bullet {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 5rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.blue {
+  background-color: blue;
+}
+.red {
+  background-color: red;
+}
+.orange {
+  background-color: orange;
+}
+.yellow {
+  background-color: yellow;
+}
+.green {
+  background-color: green;
+}
+
+.active-bullet {
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.2);
+}

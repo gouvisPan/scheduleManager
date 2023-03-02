@@ -1,0 +1,36 @@
+@import "../../../../../sass/global";
+
+.todo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 12px 0;
+
+  h4 {
+    margin: 0;
+  }
+  &__title {
+    width: 100%;
+    margin: 0;
+  }
+  &__time {
+    padding-right: 1rem;
+  }
+
+  &__x {
+    color: $color-primary-c;
+    width: 2rem;
+    font-size: 14px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__checkboxes-container {
+    display: flex;
+    gap: 0.2rem;
+  }
+
+  button {
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,22 @@
+@import "../../sass/global";
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 30%;
+  transform: translateX(-42%) rotate(90deg);
+  background-color: $color-primary-lightest;
+  padding: 0.2rem;
+  display: flex;
+  gap: 0.5rem;
+
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__active {
+    background-color: $color-primary;
+  }
+}
