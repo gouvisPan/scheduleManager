@@ -1,11 +1,19 @@
-export interface Todo {
-  id: string;
-  title: string;
+import { Event } from "./Abstractions/Event";
+
+export class Todo extends Event {
   completed: boolean;
-  isFlexible: boolean;
-  info: string;
-  category?: string;
-  investedHours?: number;
-  investedHoursDone?: number;
-  time?: string;
+  time: string;
+
+  constructor(
+    id: string,
+    title: string,
+    completed: boolean,
+    info: string,
+    category: string,
+    time: string
+  ) {
+    super(id, title, info, category);
+    this.completed = completed;
+    this.time = time;
+  }
 }

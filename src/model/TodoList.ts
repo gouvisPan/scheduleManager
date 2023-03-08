@@ -1,7 +1,8 @@
-import dayjs from "dayjs";
+import { EventList } from "./Abstractions/EventList";
 import { Todo } from "./Todo";
 
-export interface TodoList {
-  Todos: Todo[];
-  date: string;
+export class TodoList extends EventList {
+  constructor(list: Todo[], date: string) {
+    super(list, date);
+  }
 }

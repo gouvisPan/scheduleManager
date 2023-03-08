@@ -12,9 +12,21 @@ import DropDownPicker from "./DropDownPicker/DropDownPicker";
 const AddTodo: React.FC<{}> = (props) => {
   const { displayingDate } = useAppSelector((state) => state.ui);
   const [category, setCategory] = useState(0);
-  const [investedHours, setInvestedHours] = useState<number | string>(0);
-  const [timeOfTheDay, setTimeOfTheDay] = useState<number | string>("05:00");
+  const [investedHours, setInvestedHours] = useState<number | undefined>(
+    undefined
+  );
+  const [timeOfTheDay, setTimeOfTheDay] = useState<string | undefined>("05:00");
   const dispatch = useAppDispatch();
+
+  const setValue = (n: number | string) => {
+    if (typeof n === "string") {
+      setInvestedHours(undefined);
+      setTimeOfTheDay(n);
+    } else {
+      setTimeOfTheDay(undefined);
+      setInvestedHours(n);
+    }
+  };
 
   // const validate = Yup.object({
   //   title: Yup.string().email("Email is invalid").required("Email is required"),
@@ -23,12 +35,12 @@ const AddTodo: React.FC<{}> = (props) => {
 
   const onSubmitHandler = (title: string, info: string) => {
     dispatch(
-      dataActions.addTodo({
+      dataActions.addEvent({
         date: displayingDate,
         title,
         info,
-        hours,
-        time,
+        investedHours,
+        timeOfTheDay,
         category,
       })
     );
@@ -65,7 +77,7 @@ const AddTodo: React.FC<{}> = (props) => {
                 islarge={false}
               />
             </div>
-            <DropDownPicker setValue={(n) => setInvestedHours(n)} />
+            <DropDownPicker setValue={(n) => setValue(n)} />
             <CategoryPicker setCategory={(n) => setCategory(n)} />
             <button
               type="submit"

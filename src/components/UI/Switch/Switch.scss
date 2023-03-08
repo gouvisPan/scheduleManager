@@ -1,0 +1,30 @@
+@import "../../../sass/global";
+
+.switch-outter {
+  width: 2.2rem;
+
+  background-color: $color-primary;
+  border-radius: 10px;
+}
+
+.switch-inner {
+  background-color: $color-grey-black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 0.2rem 0.5rem;
+  width: 20%;
+  height: 1rem;
+  border-radius: 10px;
+  transition: 0.4s;
+  transform: translateX(-5%);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.slide-on {
+  transform: translateX(60%);
+  transition: 0.4s;
+}

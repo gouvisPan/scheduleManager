@@ -1,11 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import * as api from "../../api/AuthService";
 
 export const signUpUser = createAsyncThunk(
   "auth/signUp",
   async (credentials: string, thunkApi) => {
     try {
-      const response = await api.fetchUser(credentials);
+      const response = 2;
       console.log(response);
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);

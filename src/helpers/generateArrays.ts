@@ -1,11 +1,24 @@
 export const hoursArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-export const generateArrayBySize = (size: number) => {
-  let array: number[] = [];
+export const generateCompleteArray = (size: number) => {
+  let array: boolean[] = [];
 
   for (let i = 0; i < size; i++) {
-    array.push(i);
+    array.push(false);
   }
+  return array;
+};
+
+export const generateArrayBySize = (size: number, checked: number) => {
+  let array: { value: boolean; id: string }[] = [];
+
+  for (let i = 0; i < checked; i++) {
+    array.push({ value: true, id: i.toString() });
+  }
+  for (let i = checked; i < size; i++) {
+    array.push({ value: false, id: i.toString() });
+  }
+  console.log(array);
   return array;
 };
 

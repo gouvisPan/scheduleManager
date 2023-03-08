@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./DropDownPicker.scss";
 import { timesArray, hoursArray } from "../../../../../helpers/generateArrays";
+import Switch from "../../../../../components/UI/Switch/Switch";
 
 const DropDownPicker: React.FC<{
   setValue: (n: number | string) => void;
@@ -21,6 +22,9 @@ const DropDownPicker: React.FC<{
     }
   };
 
+  const switchHandler = () => {
+    setIsFlexible((i) => !i);
+  };
   return (
     <div className="drop-down-picker">
       <h4>{title}</h4>
@@ -35,6 +39,7 @@ const DropDownPicker: React.FC<{
           </option>
         ))}
       </select>
+      <Switch switchHandler={switchHandler}></Switch>
     </div>
   );
 };
