@@ -1,0 +1,49 @@
+@import "../../../../sass/global";
+
+.button-wrapper {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+}
+
+.module-container {
+  background-color: $color-primary-c;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: 0rem;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    li {
+      padding: 0.1rem;
+      width: 7rem;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $color-primary-c;
+        filter: brightness(95%);
+      }
+      &:active {
+        filter: brightness(105%);
+      }
+    }
+  }
+}
+
+.m-expanded {
+  transition: 0.1s ease-in;
+  width: 8rem;
+  height: 6rem;
+  border-radius: 0.2rem;
+  padding: 0;
+}

@@ -6,8 +6,8 @@ export abstract class Event {
 
   constructor(id: string, title: string, info: string, category: string) {
     this.id = id;
-    this.title = title;
-    this.info = info;
     this.category = category;
+    this.info = info;
+    this.title = title;
   }
 }

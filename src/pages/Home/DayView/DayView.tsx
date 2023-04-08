@@ -26,7 +26,7 @@ const DayView = () => {
           <TodoList />
         </div>
         <div className="day-view__body--side-r">
-          <AddTodo />
+          {/* <AddTodo /> */}
           <Notes />
         </div>
       </div>

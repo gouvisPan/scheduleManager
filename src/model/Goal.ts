@@ -1,4 +1,4 @@
-import { Event } from "./Abstractions/Event";
+import { Event } from "./Event";
 
 export class Goal extends Event {
   investedHours: number;

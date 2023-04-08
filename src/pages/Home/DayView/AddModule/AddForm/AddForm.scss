@@ -1,0 +1,33 @@
+@import "../../../../../sass/global";
+
+.add-form {
+  &__wrapper {
+    position: relative;
+    padding: 0.4rem 1rem;
+    background-color: $color-primary-c-lighter;
+    width: 30vw;
+    height: 26vh;
+    animation: slidein 0.2s;
+  }
+
+  &__close {
+    font-size: 18px;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+@keyframes slidein {
+  from {
+    width: 10vw;
+    height: 10vh;
+  }
+  to {
+    width: 30vw;
+    height: 26vh;
+  }
+}
