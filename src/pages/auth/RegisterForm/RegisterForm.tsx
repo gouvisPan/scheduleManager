@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import "./RegisterForm.scss";
 import TextField from "../TextField";
-import { signUpUser } from "../../../store/actions/auth-actions";
+import { signUpUser } from "../../../store/Auth/auth-actions";
 import { useAppDispatch } from "../../../hooks/hooks";
 
 const RegisterForm = () => {

@@ -4,10 +4,10 @@ import { useAppSelector } from "./hooks";
 
 const useSelectLists = () => {
   const todoList = useAppSelector((state) =>
-    selectTodos(state.ui.displayingDate, state.data.todoLists)
+    selectTodos(state.ui.displayingDate, state.todos.todoLists)
   );
   const goalList = useAppSelector((state) =>
-    selectGoals(state.ui.displayingDate, state.data.goalLists)
+    selectGoals(state.ui.displayingDate, state.goals.goalLists)
   );
   const sortedTodos = [...todoList].sort(
     (a, b) => parseInt(a.time!) - parseInt(b.time!)

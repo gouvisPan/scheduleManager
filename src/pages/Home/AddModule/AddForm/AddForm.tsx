@@ -1,11 +1,12 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../../../../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks";
 import AddGoal from "./AddGoal";
 import AddRoutine from "./AddRoutine";
-import * as uiActions from "../../../../../simpleStore/actions/uiActions";
+
 import AddTodo from "./AddTodo";
 import "./AddForm.scss";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { addOptionType, uiActions } from "../../../../store/UI/uiSlice";
 
 const AddForm = () => {
   const addOption = useAppSelector((state) => state.ui.addClickOption);
@@ -14,12 +15,14 @@ const AddForm = () => {
   return (
     <div className="add-form__wrapper">
       <AiFillCloseCircle
-        onClick={() => dispatch(uiActions.setAddingType(0))}
+        onClick={() =>
+          dispatch(uiActions.setAddingType({ type: addOptionType.INACTIVE }))
+        }
         className="add-form__close"
       />
-      {addOption === "todo" ? <AddTodo /> : null}
-      {addOption === "goal" ? <AddGoal /> : null}
-      {addOption === "routine" ? <AddRoutine /> : null}
+      {addOption === addOptionType.TODO ? <AddTodo /> : null}
+      {addOption === addOptionType.GOAL ? <AddGoal /> : null}
+      {addOption === addOptionType.ROUTINE ? <AddRoutine /> : null}
     </div>
   );
 };

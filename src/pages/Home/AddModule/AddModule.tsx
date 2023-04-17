@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react";
 import "./AddModule.scss";
 import { RiAddLine } from "react-icons/ri";
-import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks";
-import * as uiActions from "../../../../simpleStore/actions/uiActions";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
+import { addOptionType, uiActions } from "../../../store/UI/uiSlice";
 import AddForm from "./AddForm/AddForm";
 
 const AddModule = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
-  const category = useAppSelector((state) => state.ui.addClickOption);
+  const addOption = useAppSelector((state) => state.ui.addClickOption);
 
-  const addEventHandler = (type: string) => {
+  const addEventHandler = (type: addOptionType) => {
     setIsHovered(false);
-    dispatch(uiActions.setAddingType(type));
+    dispatch(uiActions.setAddingType({ type }));
   };
 
   const content = !isHovered ? (
     <RiAddLine />
   ) : (
     <ul>
-      <li onClick={() => addEventHandler("todo")}>Todo</li>
-      <li onClick={() => addEventHandler("goal")}>Goal</li>
-      <li onClick={() => addEventHandler("routine")}>Routine</li>
+      <li onClick={() => addEventHandler(addOptionType.TODO)}>Todo</li>
+      <li onClick={() => addEventHandler(addOptionType.GOAL)}>Goal</li>
+      <li onClick={() => addEventHandler(addOptionType.ROUTINE)}>Routine</li>
     </ul>
   );
   const conCSS = isHovered ? "m-expanded" : "";
@@ -31,9 +31,7 @@ const AddModule = () => {
 
   return (
     <div className={`button-wrapper ` + wrapCSS}>
-      {category ? (
-        <AddForm />
-      ) : (
+      {addOption === addOptionType.INACTIVE ? (
         <div
           className={`module-container ` + conCSS}
           onMouseEnter={() => setIsHovered(true)}
@@ -41,6 +39,8 @@ const AddModule = () => {
         >
           {content}
         </div>
+      ) : (
+        <AddForm />
       )}
     </div>
   );

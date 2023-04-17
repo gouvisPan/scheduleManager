@@ -1,14 +1,15 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import authSlice from "../slices/auth-slice";
-import dataSlice from "../slices/data-slice";
-
-import uiSlice from "../slices/ui-slice";
+import authSlice from "../Auth/auth-slice";
+import goalReducer from "../Goals/goalSlice";
+import todoReducer from "../Todos/todoSlice";
+import uiSlice from "../UI/uiSlice";
 
 // Create the root reducer independently to obtain the RootState type
 const rootReducer = combineReducers({
   auth: authSlice.reducer,
   ui: uiSlice.reducer,
-  data: dataSlice.reducer,
+  goals: goalReducer,
+  todos: todoReducer,
 });
 
 export default rootReducer;

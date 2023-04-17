@@ -2,7 +2,6 @@ import React from "react";
 import CheckBox from "../../../../../components/UI/CheckBox/CheckBox";
 import { useAppDispatch, useAppSelector } from "../../../../../hooks/hooks";
 import { Todo } from "../../../../../model/Todo";
-import { dataActions } from "../../../../../store/slices/data-slice";
 import "./EventComp.scss";
 import { MdCancel } from "react-icons/md";
 import { generateArrayBySize } from "../../../../../helpers/generateArrays";
@@ -12,7 +11,7 @@ const TodoComp: React.FC<{ todo: Todo }> = ({ todo }) => {
   const { displayingDate } = useAppSelector((state) => state.ui);
 
   const removeTodoHandler = () => {
-    dispatch(dataActions.removeEvent({ date: displayingDate, event: todo }));
+    // dispatch(dataActions.removeEvent({ date: displayingDate, event: todo }));
   };
 
   return (

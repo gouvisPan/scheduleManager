@@ -1,5 +1,6 @@
-import AddModule from "./DayView/AddModule/AddModule";
+import AddModule from "./AddModule/AddModule";
 import DayView from "./DayView/DayView";
+import GoalTypes from "./GoalTypes/GoalTypes";
 import "./Home.scss";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div className="home">
       {/* implement day / week / month view */}
       <DayView />
+      <GoalTypes />
       <AddModule />
     </div>
   );

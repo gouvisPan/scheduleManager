@@ -7,7 +7,7 @@ import "./DayView.scss";
 
 import Notes from "./Notes/Notes";
 import TodoList from "./ToDoList/TodoList";
-import { uiActions } from "../../../store/slices/ui-slice";
+import { uiActions } from "../../../store/UI/uiSlice";
 import AddTodo from "./AddTodo/AddTodo";
 
 const DayView = () => {

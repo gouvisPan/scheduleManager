@@ -2,11 +2,20 @@ import { createSlice, current } from "@reduxjs/toolkit";
 import dayjs, { Dayjs } from "dayjs";
 import { formatDate, getDayStr } from "../../helpers/datesUtil";
 
+export enum addOptionType {
+  TODO = "todo",
+  GOAL = "goal",
+  ROUTINE = "routine",
+  INACTIVE = "inactive",
+}
+
 interface uiSliceState {
   displayingDate: string;
   displayingDay: string;
   adder: number;
   addingCategory: number;
+  addClickOption: addOptionType;
+  isAddingGoalType: boolean;
 }
 
 const initialState: uiSliceState = {
@@ -14,6 +23,8 @@ const initialState: uiSliceState = {
   displayingDay: getDayStr(dayjs().day()),
   adder: 0,
   addingCategory: 0,
+  addClickOption: addOptionType.INACTIVE,
+  isAddingGoalType: false,
 };
 
 const uiSlice = createSlice({
@@ -32,6 +43,12 @@ const uiSlice = createSlice({
     },
     setAddingCategory: (state, action) => {
       state.addingCategory = action.payload;
+    },
+    setAddingType: (state, action) => {
+      state.addClickOption = action.payload.type;
+    },
+    setIsAddingGoalType: (state, action) => {
+      state.isAddingGoalType = action.payload.isAdding;
     },
   },
 });

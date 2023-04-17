@@ -1,14 +1,12 @@
 import { Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
-import TextField from "../../../../../components/UI/TextField";
-import CategoryPicker from "../../AddTodo/CategoryPicker/CategoryPicker";
-import DropDownPicker from "../../AddTodo/DropDownPicker/DropDownPicker";
-import * as uiActions from "../../../../../simpleStore/actions/uiActions";
-import * as todoActions from "../../../../../simpleStore/actions/todoActions";
-import { useAppDispatch } from "../../../../../hooks/hooks";
+import TextField from "../../../../components/UI/TextField";
+import CategoryPicker from "../../DayView/AddTodo/CategoryPicker/CategoryPicker";
+import DropDownPicker from "../../DayView/AddTodo/DropDownPicker/DropDownPicker";
+import { useAppDispatch } from "../../../../hooks/hooks";
 import DatePicker from "react-datepicker";
 import "./AddAny.scss";
-import { normalizeDateStr } from "../../../../../helpers/normalizeDateStr";
+import { addOptionType, uiActions } from "../../../../store/UI/uiSlice";
 
 const AddTodo = () => {
   const [category, setCategory] = useState(0);
@@ -16,19 +14,19 @@ const AddTodo = () => {
   const dispatch = useAppDispatch();
 
   const onSubmitHandler = (title: string, info: string) => {
-    dispatch(uiActions.setAddingType(0));
+    dispatch(uiActions.setAddingType(addOptionType.INACTIVE));
     const dateStr = date!.toISOString().slice(0, 10);
     const timeStr = date!.toLocaleTimeString().slice(0, 5);
 
-    dispatch(
-      todoActions.addTodo({
-        date: normalizeDateStr(dateStr),
-        title,
-        time: timeStr,
-        info,
-        category,
-      })
-    );
+    // dispatch(
+    //   todoActions.addTodo({
+    //     date: normalizeDateStr(dateStr),
+    //     title,
+    //     time: timeStr,
+    //     info,
+    //     category,
+    //   })
+    // );
   };
 
   return (

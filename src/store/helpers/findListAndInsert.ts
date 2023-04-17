@@ -1,15 +1,18 @@
-import { Event } from "../../model/Abstractions/Event";
-import { EventList } from "../../model/Abstractions/EventList";
+import { Event } from "../../model/Event";
+import { Goal } from "../../model/Goal";
+import { GoalList } from "../../model/GoalList";
+import { Todo } from "../../model/Todo";
+import { TodoList } from "../../model/TodoList";
 
 export const findListAndInsert = (
-  event: Event,
+  event: Goal | Todo,
   date: string,
-  lists: EventList[]
+  lists: any
 ) => {
   let flag = true;
   const myLists = [...lists];
 
-  myLists.forEach((list) => {
+  myLists.forEach((list: any) => {
     if (list.date == date) {
       list.list.push(event);
       flag = false;
@@ -17,7 +20,7 @@ export const findListAndInsert = (
   });
 
   if (flag) {
-    const newList: EventList = {
+    const newList: any = {
       list: [],
       date,
     };

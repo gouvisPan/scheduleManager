@@ -8,7 +8,6 @@ interface textFieldProps {
   value?: string;
   className?: string;
   pholder?: string;
-  islarge: boolean;
 }
 
 const TextField: React.FC<textFieldProps> = (props) => {
@@ -16,17 +15,13 @@ const TextField: React.FC<textFieldProps> = (props) => {
 
   return (
     <div className="text-field">
-      {!props.islarge && (
-        <input
-          {...field}
-          {...props}
-          value={props.value}
-          placeholder={props.pholder}
-          className={props.className}
-        />
-      )}
-
-      {props.islarge && <textarea {...field} {...props}></textarea>}
+      <input
+        {...field}
+        {...props}
+        value={props.value}
+        placeholder={props.pholder}
+        className={props.className}
+      />
       <ErrorMessage
         component="div"
         name={field.name}

@@ -2,7 +2,7 @@ import SpinningButton from "./SpinningButton/SpinningButton";
 import "./Header.scss";
 import { BiLogOutCircle } from "react-icons/bi";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { logoutUser } from "../../store/actions/auth-actions";
+import { logoutUser } from "../../store/Auth/auth-actions";
 import { useLocation } from "react-router";
 import Nav from "./Nav/Nav";
 

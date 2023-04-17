@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { signUpUser, loginUser, logoutUser } from "../actions/auth-actions";
+import { signUpUser, loginUser, logoutUser } from "./auth-actions";
 
 interface authSliceState {
   isLoading: boolean;

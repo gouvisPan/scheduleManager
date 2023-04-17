@@ -1,19 +1,6 @@
 import { Event } from "./Event";
 
-export class Goal extends Event {
-  investedHours: number;
+export interface Goal extends Event {
+  hoursToInvest: number;
   investedHoursDone: number;
-
-  constructor(
-    id: string,
-    title: string,
-    info: string,
-    category: string,
-    investedHours: number,
-    investedHoursDone: number = 0
-  ) {
-    super(id, title, info, category);
-    this.investedHours = investedHours;
-    this.investedHoursDone = investedHoursDone;
-  }
 }

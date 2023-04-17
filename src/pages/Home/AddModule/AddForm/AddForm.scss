@@ -1,4 +1,4 @@
-@import "../../../../../sass/global";
+@import "../../../../sass/global";
 
 .add-form {
   &__wrapper {
@@ -7,7 +7,7 @@
     background-color: $color-primary-c-lighter;
     width: 30vw;
     height: 26vh;
-    animation: slidein 0.2s;
+    animation: slide 0.4s;
   }
 
   &__close {
@@ -21,7 +21,7 @@
     }
   }
 }
-@keyframes slidein {
+@keyframes slide {
   from {
     width: 10vw;
     height: 10vh;
