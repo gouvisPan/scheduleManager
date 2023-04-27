@@ -1,12 +1,11 @@
 import { Todo } from "../../model/Todo";
-import { TodoList } from "../../model/TodoList";
 
-export const selectTodos = (date: string, lists: TodoList[]) => {
+export const selectTodos = (date: string, list: Todo[]) => {
   let specificList: Todo[] = [];
 
-  lists.forEach((list) => {
-    if (list.date === date) specificList = list.list;
-  });
+  specificList = list.filter(
+    (todo) => todo.date.slice(0, 10) === date.slice(0, 10)
+  );
 
   return specificList;
 };

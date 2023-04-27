@@ -3,7 +3,7 @@ import { MdCancel } from "react-icons/md";
 import CheckBox from "../../../../../components/UI/CheckBox/CheckBox";
 import { generateArrayBySize } from "../../../../../helpers/generateArrays";
 import { useAppDispatch, useAppSelector } from "../../../../../hooks/hooks";
-import { Goal } from "../../../../../model/Goal";
+import { Goal } from "../../../../../model/Momentum";
 
 import "./EventComp.scss";
 

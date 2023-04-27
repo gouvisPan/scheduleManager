@@ -1,12 +1,7 @@
-import { Goal } from "../../model/Goal";
-import { GoalList } from "../../model/GoalList";
+import { Momentum } from "../../model/Momentum";
 
-export const selectGoals = (date: string, lists: GoalList[]) => {
-  let specificList: Goal[] = [];
-
-  lists.forEach((list) => {
-    if (list.date === date) specificList = list.list;
-  });
+export const selectGoals = (date: string, lists: Momentum[]) => {
+  let specificList: Momentum[] = [];
 
   return specificList;
 };

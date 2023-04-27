@@ -1,31 +1,32 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
-import { findListAndInsert } from "../helpers/findListAndInsert";
-import { addTodo } from "./actions";
+import { createSlice } from "@reduxjs/toolkit";
 import { Todo } from "../../model/Todo";
-import { TodoList } from "../../model/TodoList";
+import { addTodo, deleteTodo, updateTodo } from "./aync-thunks";
 
 export interface todoSliceState {
-  todoLists: TodoList[];
+  todoLists: Todo[];
 }
-
 const initialState: todoSliceState = {
   todoLists: [],
 };
 
-const todoReducer = createReducer(initialState, (builder) => {
-  builder.addCase(addTodo, (state, { payload }) => {
-    const id = uuidv4();
-    const todo: Todo = {
-      id: id,
-      title: payload.title,
-      time: payload.time,
-      completed: false,
-      description: payload.desc,
-      category: "",
-    };
-    findListAndInsert(todo, payload.date, state.todoLists);
-  });
+const todoSlice = createSlice({
+  name: "todo",
+  initialState,
+  reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(addTodo.fulfilled, (state, action) => {
+        state.todoLists.push(action.payload);
+      })
+      .addCase(deleteTodo.fulfilled, (state, action) => {
+        state.todoLists.filter((todo: Todo) => todo.id !== action.payload);
+      })
+      .addCase(updateTodo.fulfilled, (state, action) => {
+        state.todoLists.map((todo: Todo) => {
+          todo.id === action.payload.id ? action.payload : todo;
+        });
+      });
+  },
 });
 
-export default todoReducer;
+export default todoSlice;

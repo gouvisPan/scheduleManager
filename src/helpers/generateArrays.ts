@@ -18,7 +18,6 @@ export const generateArrayBySize = (size: number, checked: number) => {
   for (let i = checked; i < size; i++) {
     array.push({ value: false, id: i.toString() });
   }
-  console.log(array);
   return array;
 };
 

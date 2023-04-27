@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { monthlyHoursArray } from "../../../helpers/generateArrays";
 import { useAppDispatch } from "../../../hooks/hooks";
-import { addGoalType } from "../../../store/Goals/action";
+import { addGoalType } from "../../../store/Momentums/action";
 import { uiActions } from "../../../store/UI/uiSlice";
 import DropDownPicker from "../DayView/AddTodo/DropDownPicker/DropDownPicker";
 import { TbArrowBack } from "react-icons/tb";

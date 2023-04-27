@@ -4,7 +4,7 @@ import DropDownPicker from "../../DayView/AddTodo/DropDownPicker/DropDownPicker"
 import "react-datepicker/dist/react-datepicker.css";
 import "./AddAny.scss";
 import { addOptionType, uiActions } from "../../../../store/UI/uiSlice";
-import { addGoal } from "../../../../store/Goals/action";
+import { addGoal } from "../../../../store/Momentums/action";
 import { hoursNumberArray } from "../../../../helpers/generateArrays";
 import DatePicker from "react-datepicker";
 

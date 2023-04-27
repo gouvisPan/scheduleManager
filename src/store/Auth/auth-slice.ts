@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { signUpUser, loginUser, logoutUser } from "./auth-actions";
+import { signUpUser, loginUser, logoutUser } from "./async-actions";
 
 interface authSliceState {
   isLoading: boolean;
@@ -34,9 +34,6 @@ const authSlice = createSlice({
       state.error = null;
     },
   },
-  //  while the useEffect on App.tsx handles auth state, those extra reducers ensure:
-  //  a)That the Loading and Error states of the app are handled properly and
-  //  b)That the app is scalable and ready to run with different backends
   extraReducers(builder) {
     builder
       .addCase(loginUser.pending, (state) => {
@@ -63,7 +60,6 @@ const authSlice = createSlice({
       })
       .addCase(signUpUser.rejected, (state, obj) => {
         state.isLoading = false;
-        console.log(obj);
       })
       .addCase(logoutUser.pending, (state) => {
         state.isLoading = true;
@@ -76,7 +72,6 @@ const authSlice = createSlice({
       })
       .addCase(logoutUser.rejected, (state, obj) => {
         state.isLoading = false;
-        console.log(obj);
       });
   },
 });

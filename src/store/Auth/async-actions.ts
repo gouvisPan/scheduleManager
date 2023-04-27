@@ -1,10 +1,20 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import * as api from "../../api/authService";
+export interface signUpCredentials {
+  email: string;
+  password: string;
+  name: string;
+}
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
 
 export const signUpUser = createAsyncThunk(
   "auth/signUp",
-  async (credentials: string, thunkApi) => {
+  async (credentials: signUpCredentials, thunkApi) => {
     try {
-      const response = 2;
+      const response = await api.createUser(credentials);
       console.log(response);
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
@@ -14,8 +24,10 @@ export const signUpUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
   "auth/signIn",
-  async (_: void, thunkApi) => {
+  async (credentials: LoginCredentials, thunkApi) => {
     try {
+      const response = await api.fetchUser(credentials);
+      console.log(response);
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
     }

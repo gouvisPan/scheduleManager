@@ -5,7 +5,6 @@ import Notification from "../../components/UI/Notification/Notification";
 import { useState } from "react";
 
 const Layout = () => {
-
   const error = useAppSelector((state) => state.auth.error);
   const [isErrorDisplaying, setIsErrorDisplaying] = useState(false);
   const dispatch = useAppDispatch();

@@ -2,20 +2,24 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import "../RegisterForm/RegisterForm.scss";
 import TextField from "../TextField";
+import { loginUser } from "../../../store/Auth/async-actions";
+import { useAppDispatch } from "../../../hooks/hooks";
 
 const LoginForm = () => {
+  const dispatch = useAppDispatch();
+
   const validate = Yup.object({
     email: Yup.string().email("Email is invalid").required("Email is required"),
     password: Yup.string().required("Password is required"),
   });
 
   const onSubmitHandler = (email: string, password: string) => {
-    // dispatch(
-    //   loginUser({
-    //     email,
-    //     password,
-    //   })
-    // );
+    dispatch(
+      loginUser({
+        email,
+        password,
+      })
+    );
   };
 
   return (

@@ -2,8 +2,8 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import "./RegisterForm.scss";
 import TextField from "../TextField";
-import { signUpUser } from "../../../store/Auth/auth-actions";
 import { useAppDispatch } from "../../../hooks/hooks";
+import { signUpUser } from "../../../store/Auth/async-actions";
 
 const RegisterForm = () => {
   const dispatch = useAppDispatch();
@@ -24,8 +24,8 @@ const RegisterForm = () => {
     dispatch(
       signUpUser({
         email,
-        name,
         password,
+        name,
       })
     );
   };

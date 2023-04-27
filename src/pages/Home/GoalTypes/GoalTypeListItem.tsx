@@ -1,8 +1,8 @@
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { useAppDispatch } from "../../../hooks/hooks";
-import { GoalType } from "../../../model/GoalType";
-import { removeGoalType } from "../../../store/Goals/action";
+import { GoalType } from "../../../model/Checkpoint";
+import { removeGoalType } from "../../../store/Momentums/action";
 
 const GoalTypeListItem: React.FC<{ type: GoalType }> = ({ type }) => {
   const dispatch = useAppDispatch();

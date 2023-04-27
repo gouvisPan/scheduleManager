@@ -11,14 +11,17 @@ import { uiActions } from "../../../store/UI/uiSlice";
 import AddTodo from "./AddTodo/AddTodo";
 
 const DayView = () => {
-  const { displayingDay, displayingDate } = useAppSelector((state) => state.ui);
+  const { activeDate } = useAppSelector((state) => state.ui);
   const dispatch = useAppDispatch();
-
+  const displayingDate = new Date(Date.parse(activeDate));
+  console.log(displayingDate);
+  const dateStr = displayingDate.toLocaleDateString().slice(0, 5);
+  const dayStr = getDayStr(displayingDate.getDay());
   return (
     <div className="day-view">
       <div className="day-view__header">
         <BiLeftArrow onClick={() => dispatch(uiActions.showPrevDay())} />
-        <h1>{displayingDay + " " + displayingDate.slice(0, 5)}</h1>
+        <h1>{dayStr + " " + dateStr}</h1>
         <BiRightArrow onClick={() => dispatch(uiActions.showNextDay())} />
       </div>
       <div className="day-view__body">

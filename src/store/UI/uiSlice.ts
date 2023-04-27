@@ -10,8 +10,9 @@ export enum addOptionType {
 }
 
 interface uiSliceState {
-  displayingDate: string;
-  displayingDay: string;
+  activeDate: string;
+  // displayingDate: string;
+  // displayingDay: string;
   adder: number;
   addingCategory: number;
   addClickOption: addOptionType;
@@ -19,8 +20,9 @@ interface uiSliceState {
 }
 
 const initialState: uiSliceState = {
-  displayingDate: formatDate(dayjs()),
-  displayingDay: getDayStr(dayjs().day()),
+  activeDate: new Date().toISOString(),
+  // displayingDate: formatDate(dayjs()),
+  // displayingDay: getDayStr(dayjs().day()),
   adder: 0,
   addingCategory: 0,
   addClickOption: addOptionType.INACTIVE,
@@ -33,13 +35,13 @@ const uiSlice = createSlice({
   reducers: {
     showNextDay: (state) => {
       state.adder++;
-      state.displayingDate = formatDate(dayjs().add(state.adder, "day"));
-      state.displayingDay = getDayStr(dayjs().add(state.adder, "day").day());
+      // state.displayingDate = formatDate(dayjs().add(state.adder, "day"));
+      // state.displayingDay = getDayStr(dayjs().add(state.adder, "day").day());
     },
     showPrevDay: (state) => {
       state.adder--;
-      state.displayingDate = formatDate(dayjs().add(state.adder, "day"));
-      state.displayingDay = getDayStr(dayjs().add(state.adder, "day").day());
+      // state.displayingDate = formatDate(dayjs().add(state.adder, "day"));
+      // state.displayingDay = getDayStr(dayjs().add(state.adder, "day").day());
     },
     setAddingCategory: (state, action) => {
       state.addingCategory = action.payload;

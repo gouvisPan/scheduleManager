@@ -1,5 +1,5 @@
 import { Event } from "../../model/Event";
-import { Goal } from "../../model/Goal";
+import { Goal } from "../../model/Momentum";
 import { GoalList } from "../../model/GoalList";
 import { Todo } from "../../model/Todo";
 import { TodoList } from "../../model/TodoList";
